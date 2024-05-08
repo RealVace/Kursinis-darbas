@@ -34,22 +34,22 @@ Upon running the program, players are presented with the game window. They can c
    - **Description**: Encapsulation is the bundling of data and methods that operate on the data into a single unit or class. It allows for the hiding of internal state and only exposing necessary functionalities to the outside world, thus promoting information hiding and reducing system complexity.
   
     `class Snake:
-    def __init__(self, start_pos, segment_size):
-        self.body = [start_pos, (start_pos[0] - segment_size, start_pos[1]), ...]
-        ...`
+   def __init__(self, start_pos, segment_size):
+   self.body = [start_pos, (start_pos[0] - segment_size, start_pos[1]), ...]
+   ...`
     
     `def move_up(self):
-        self.change_direction((0, -1))`
+   self.change_direction((0, -1))`
 
     `class Apple:
-    def __init__(self, size, screen_width, screen_height):
-        self.size = size
-        self.screen_width = screen_width
-        self.screen_height = screen_height
-        self.position = self.generate_position()
-        ...`
+   def __init__(self, size, screen_width, screen_height):
+   self.size = size
+   self.screen_width = screen_width
+   self.screen_height = screen_height
+   self.position = self.generate_position()
+   ...`
 
-2. **Inheritance**
+3. **Inheritance**
 
    - **Description**: Inheritance is the mechanism by which a class can inherit attributes and methods from another class, called the parent class. It promotes code reusability and allows for creating specialized classes that inherit common functionalities from the parent class.
      
@@ -63,52 +63,52 @@ Upon running the program, players are presented with the game window. They can c
         super().__init__(size, screen_width, screen_height)
         self.color = (0, 255, 255)`
 
-3. **Polymorphism**
+4. **Polymorphism**
 
    - **Description**: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables methods to behave differently based on the object they are invoked on, promoting flexibility and code extensibility.
   
     `class Apple:
-    ...
-    def draw(self, screen):
-        pygame.draw.rect(screen, self.color, (self.position[0], self.position[1], self.size, self.size))`
+   ...
+   def draw(self, screen):
+   pygame.draw.rect(screen, self.color, (self.position[0], self.position[1], self.size, self.size))`
 
     `class GoldenApple(Apple):
-    ...
-    def draw(self, screen):
-        pygame.draw.rect(screen, self.color, (self.position[0], self.position[1], self.size, self.size))`
+   ...
+   def draw(self, screen):
+   pygame.draw.rect(screen, self.color, (self.position[0], self.position[1], self.size, self.size))`
 
-4. **Abstraction**
+6. **Abstraction**
 
    - **Description**: Abstraction is the concept of hiding complex implementation details and showing only the necessary features of an object. It allows for focusing on essential attributes and behaviors while hiding irrelevant details, thereby simplifying the system's design and making it easier to understand and use.
   
    `class Snake:
-    ...
-    def move_up(self):
-        self.change_direction((0, -1))`
+   ...
+   def move_up(self):
+   self.change_direction((0, -1))`
 
 ### Design Patterns
 
 - **Singleton Pattern**: The Singleton Pattern ensures that a class has only one instance and provides a global point of access to that instance. It is useful when exactly one object is needed to coordinate actions across the system, such as managing shared resources or tracking global state.
 
    `class HighscoreTracker:
-    _instance = None
-    ...
-    @classmethod
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            ...
-        return cls._instance`
+  _instance = None
+  ...
+  @classmethod
+  def __new__(cls):
+  if cls._instance is None:
+  cls._instance = super().__new__(cls)
+  ...
+  return cls._instance`
 
 ### Reading from File & Writing to File
 
 Reading from a file and writing to a file is implemented in the HighscoreTracker class when we need to save and load the user's high score.
 
 `with open("highscore.txt", "r") as file:
-    highscore = int(file.read())`
+highscore = int(file.read())`
 
 `with open("highscore.txt", "w") as file:
-    file.write(str(highscore))`
+file.write(str(highscore))`
 
 ## 3. Results and Summary
 
